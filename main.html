@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ItzBogged</title>
+  <meta name="description" content="Official website for ItzBogged — Minecraft creator, director, editor, and developer. Creator of the flagship cinematic series 'The Rift'." />
+  <meta property="og:title" content="ItzBogged — Minecraft Creator & Director" />
+  <meta property="og:description" content="Creating cinematic Minecraft stories, experiences, and worlds. Featuring The Rift." />
+  <meta property="og:url" content="https://bogged.top" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+  <canvas id="particleCanvas"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo" onclick="switchTab('home')">
+        <span class="logo-white">Itz</span><span class="logo-purple">Bogged</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item active" data-tab="home" onclick="switchTab('home')">Home</a>
+        <a href="#rift" class="nav-item" data-tab="rift" onclick="switchTab('rift')">
+          The Rift <span class="badge-dot"></span>
+        </a>
+        <a href="#about" class="nav-item" data-tab="about" onclick="switchTab('about')">About</a>
+        <a href="#socials" class="nav-item" data-tab="socials" onclick="switchTab('socials')">Socials</a>
+        <a href="#contact" class="nav-item" data-tab="contact" onclick="switchTab('contact')">Contact</a>
+        <button class="btn-links-pill" onclick="openLinkHub()">Links</button>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- HOME VIEW -->
+    <section id="home-view" class="tab-view active">
+      
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="tagline-pill">
+            <span class="sparkle">✦</span> THE RIFT — A CINEMATIC MINECRAFT SERIES
+          </div>
+          <h1 class="hero-title">
+            <span class="text-white">Itz</span><span class="text-purple">Bogged</span>
+          </h1>
+          <h2 class="hero-subtitle">Minecraft Creator & Director</h2>
+          <p class="hero-desc">Creating cinematic Minecraft stories, experiences, and worlds.</p>
+          
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-animated" onclick="switchTab('rift')">
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch The Rift
+            </button>
+            <a href="#" target="_blank" rel="noopener" class="btn btn-secondary btn-animated link-yt">
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube
+            </a>
+            <button class="btn btn-ghost btn-animated" onclick="switchTab('contact')">
+              Contact <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>SCROLL</span>
+          <div class="scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- FLAGSHIP TRAILER SECTION -->
+      <section class="container section-padding">
+        <div class="flagship-card glass-panel">
+          <div class="flagship-text">
+            <span class="section-label">OFFICIAL TRAILER</span>
+            <h2 class="flagship-title">THE RIFT</h2>
+            <p class="flagship-tagline">Some things were never meant to be changed.</p>
+            <p class="flagship-desc">
+              Watch the official trailer for The Rift, a cinematic Minecraft series centered around time, reality, and the consequences of changing the past.
+            </p>
+            <div class="flagship-buttons">
+              <button class="btn btn-primary btn-animated" onclick="openTrailerModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Trailer
+              </button>
+              <button class="btn btn-outline btn-animated" onclick="switchTab('rift')">
+                Explore The Rift <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+          <div class="flagship-media">
+            <div class="media-preview-box">
+              <div class="live-badge"><span class="pulse-dot"></span> OFFICIAL TRAILER</div>
+              <img src="assets/flagship-banner.png" alt="The Rift Official Trailer Preview" class="banner-img" id="flagshipBannerImg" />
+              <div class="play-overlay" onclick="openTrailerModal()">
+                <div class="play-icon-circle"><div class="play-triangle"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS SECTION -->
+      <section class="container section-padding">
+        <div class="stats-grid">
+          <div class="stat-card glass-panel">
+            <div class="stat-icon-svg">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="stat-data">
+              <span class="stat-value" id="ytSubscribers">--</span>
+              <span class="stat-label">SUBSCRIBERS</span>
+            </div>
+          </div>
+          <div class="stat-card glass-panel">
+            <div class="stat-icon-svg">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="stat-data">
+              <span class="stat-value" id="ytTotalViews">--</span>
+              <span class="stat-label">TOTAL VIEWS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LATEST YOUTUBE CONTENT -->
+      <section class="container section-padding">
+        <div class="section-header">
+          <div>
+            <span class="section-label">LATEST CONTENT</span>
+            <h2 class="section-title">LATEST FROM ITZBOGGED</h2>
+          </div>
+          <a href="#" target="_blank" class="link-btn link-yt">View All on YouTube →</a>
+        </div>
+        <div class="yt-grid" id="ytVideoFeed">
+          <!-- Dynamic Live Videos populate here -->
+        </div>
+      </section>
+    </section>
+
+    <!-- THE RIFT PAGE -->
+    <section id="rift-view" class="tab-view">
+      <div class="rift-hero">
+        <div class="rift-hero-overlay"></div>
+        <div class="container rift-hero-content">
+          <span class="rift-badge">CINEMATIC MOVIES</span>
+          <h1 class="rift-main-title">THE RIFT</h1>
+          <p class="rift-tagline">"Some things were never meant to be changed."</p>
+          <div class="rift-hero-actions">
+            <button class="btn btn-primary btn-animated" onclick="openTrailerModal()">Watch Official Trailer</button>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sub-nav">
+        <div class="container sub-nav-inner">
+          <button class="sub-link active" onclick="switchRiftTab('premise', this)">Overview</button>
+          <button class="sub-link" onclick="switchRiftTab('cast', this)">Cast & Crew</button>
+          <button class="sub-link" onclick="switchRiftTab('lore', this)">Lore & Universe</button>
+          <button class="sub-link" onclick="switchRiftTab('gallery', this)">Gallery & BTS</button>
+        </div>
+      </nav>
+
+      <div class="container section-padding">
+        
+        <div id="rift-premise" class="rift-tab-content active">
+          <div class="overview-grid">
+            <div class="overview-text">
+              <span class="section-label">WHAT IS THE RIFT?</span>
+              <h2>A Narrative Journey Through Time and Consequence</h2>
+              <p class="lead-p">
+                The Rift is a cinematic Minecraft series built around time travel, fractured realities, and the devastating consequences of changing the past.
+              </p>
+              <p>
+                The Rift elevates Minecraft storytelling into a film-grade experience.
+              </p>
+            </div>
+            <div class="overview-card glass-panel">
+              <h3>Series Details</h3>
+              <ul class="details-list">
+                <li><strong>Format:</strong> Episodic Cinematic Series</li>
+                <li><strong>Genre:</strong> Sci-Fi / Drama / Time Travel</li>
+                <li><strong>Creator/Director:</strong> ItzBogged</li>
+                <li><strong>Status:</strong> Production</li>
+                <li><strong>Platform:</strong> YouTube</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- DYNAMIC CAST & CREW -->
+        <div id="rift-cast" class="rift-tab-content">
+          <div class="section-header">
+            <span class="section-label">CREDITS</span>
+            <h2>CAST & CREW</h2>
+          </div>
+          <div id="castContainer">
+            <!-- Dynamic Cast list populated from app.js -->
+          </div>
+        </div>
+
+        <!-- DYNAMIC LORE & UNIVERSE -->
+        <div id="rift-lore" class="rift-tab-content">
+          <div class="section-header">
+            <span class="section-label">UNIVERSE ARCHIVE</span>
+            <h2>STORY & LORE DATABASE</h2>
+          </div>
+          <div class="accordion-group" id="loreContainer">
+            <!-- Dynamic Lore & Universe entries populate from app.js -->
+          </div>
+        </div>
+
+        <!-- DYNAMIC GALLERY & BTS -->
+        <div id="rift-gallery" class="rift-tab-content">
+          <div class="section-header">
+            <span class="section-label">MEDIA ARCHIVE</span>
+            <h2>GALLERY & BEHIND THE SCENES</h2>
+          </div>
+          <div class="gallery-grid" id="galleryContainer">
+            <!-- Dynamic Gallery list populated from app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT VIEW -->
+    <section id="about-view" class="tab-view">
+      <div class="container section-padding">
+        <div class="about-grid">
+          <div class="about-image-column">
+            <div class="portrait-card glass-panel">
+              <div class="avatar-placeholder">
+                <img src="assets/avatar.png" alt="ItzBogged Avatar" class="avatar-img" id="avatarImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="avatar-fallback" style="display:none;">ItzBogged</span>
+              </div>
+              <div class="portrait-badges">
+                <span class="p-badge">Director</span>
+                <span class="p-badge">Editor</span>
+                <span class="p-badge">Developer</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-text-column">
+            <span class="section-label">THE CREATOR</span>
+            <h1 class="page-title">ABOUT ITZBOGGED</h1>
+            <p class="lead-p">
+              ItzBogged is a Minecraft creator, video editor, and technical developer specializing in storytelling.
+            </p>
+            <p>
+              ItzBogged pushes the boundaries of storytelling inside sandbox environments.
+            </p>
+
+            <div class="skills-block">
+              <h3>Core Capabilities</h3>
+              <div class="tag-cloud">
+                <span>Cinematic Direction</span>
+                <span>Video Editing</span>
+                <span>Minecraft Development</span>
+                <span>Environment Design</span>
+                <span>Visual Effects (VFX)</span>
+                <span>Storyboarding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIALS VIEW -->
+    <section id="socials-view" class="tab-view">
+      <div class="container section-padding">
+        <div class="section-header center">
+          <span class="section-label">CONNECT</span>
+          <h1 class="page-title">OFFICIAL SOCIAL HUB</h1>
+        </div>
+
+        <div class="socials-full-grid">
+          <a href="#" target="_blank" class="social-box glass-panel btn-animated link-yt">
+            <div class="box-head">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#7C3AED"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <h3>YouTube</h3>
+            </div>
+            <p>@itzbogged</p>
+            <span class="sub-text">Main Videos & Releases</span>
+          </a>
+
+          <a href="#" target="_blank" class="social-box glass-panel btn-animated link-discord">
+            <div class="box-head">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#7C3AED"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.793 8.18 1.793 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.077.077 0 0 1-.006.128 12.299 12.299 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/></svg>
+              <h3>Discord</h3>
+            </div>
+            <p>Bogged Community</p>
+            <span class="sub-text">Updates & Events</span>
+          </a>
+
+          <a href="#" target="_blank" class="social-box glass-panel btn-animated link-twitch">
+            <div class="box-head">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#7C3AED"><path d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-2.571 2.571v-2.571H6.857V1.714h13.714z"/></svg>
+              <h3>Twitch</h3>
+            </div>
+            <p>itzbogged</p>
+            <span class="sub-text">Streams</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT VIEW -->
+    <section id="contact-view" class="tab-view">
+      <div class="container section-padding">
+        <div class="contact-layout">
+          <div class="contact-info">
+            <span class="section-label">GET IN TOUCH</span>
+            <h1 class="page-title">WORK WITH ITZBOGGED</h1>
+            <p class="lead-p">
+              Available for narrative series direction, video editing, custom Minecraft technical projects, and media partnerships.
+            </p>
+            
+            <div class="direct-email-card glass-panel">
+              <span class="label">DIRECT EMAIL</span>
+              <a href="#" class="email-link link-email email-text">contact@bogged.top</a>
+            </div>
+          </div>
+
+          <div class="contact-form-container glass-panel">
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" id="name" required placeholder="Your Name or Organization" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" required placeholder="your.email@domain.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">INQUIRY CATEGORY</label>
+                <select id="subject" required>
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="Business Inquiry">Business Inquiry</option>
+                  <option value="The Rift Project">The Rift Project</option>
+                  <option value="Video Editing Services">Video Editing Services</option>
+                  <option value="Creator Collaboration">Creator Collaboration</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">MESSAGE</label>
+                <textarea id="message" rows="5" required placeholder="Tell me about your project or proposal..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary full-width btn-animated">SEND MESSAGE</button>
+              <div id="formStatus" class="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col brand-col">
+        <a href="#home" class="brand-logo" onclick="switchTab('home')">
+          <span class="logo-white">Itz</span><span class="logo-purple">Bogged</span>
+        </a>
+        <p class="sub-tagline">Minecraft Content Creator</p>
+      </div>
+
+      <div class="footer-col nav-col">
+        <span class="col-title">NAVIGATION</span>
+        <ul>
+          <li><a href="#home" onclick="switchTab('home')">Home</a></li>
+          <li><a href="#rift" onclick="switchTab('rift')">The Rift</a></li>
+          <li><a href="#about" onclick="switchTab('about')">About</a></li>
+          <li><a href="#socials" onclick="switchTab('socials')">Socials</a></li>
+          <li><a href="#contact" onclick="switchTab('contact')">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col more-col">
+        <span class="col-title">MORE</span>
+        <ul>
+          <li><a href="#credits" onclick="openModal('creditsModal')">Credits</a></li>
+          <li><a href="#privacy" onclick="openModal('privacyModal')">Privacy</a></li>
+          <li><a href="#terms" onclick="openModal('termsModal')">Terms</a></li>
+          <li><a href="#" class="footer-email link-email email-text">boggedbusiness@proton.me</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 ItzBogged. All rights reserved.</span>
+      <span class="domain-tag">bogged.top</span>
+      <span>Website Designed & Developed by ItzBogged</span>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="lightbox" class="modal-overlay" onclick="closeLightbox()">
+    <div class="modal-content lightbox-content">
+      <span class="close-btn">&times;</span>
+      <img id="lightboxImg" src="" alt="Enlarged View" />
+    </div>
+  </div>
+
+  <div id="videoModal" class="modal-overlay" onclick="closeVideoModal()">
+    <div class="modal-content video-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeVideoModal()">&times;</span>
+      <div class="iframe-container">
+        <iframe id="videoIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div id="linkHubModal" class="modal-overlay" onclick="closeModal('linkHubModal')">
+    <div class="modal-content link-hub-card glass-panel" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeModal('linkHubModal')">&times;</span>
+      <div class="link-hub-header">
+        <div class="hub-avatar">
+          <img src="assets/avatar.png" alt="ItzBogged" class="avatar-img" id="hubAvatarImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+          <span style="display:none;">ItzBogged</span>
+        </div>
+        <h2>ItzBogged</h2>
+        <p>Minecraft Creator & Director</p>
+      </div>
+      <div class="link-hub-buttons">
+        <a href="#" target="_blank" class="hub-btn link-yt">YouTube Main Channel</a>
+        <a href="#" target="_blank" class="hub-btn link-secondyt">YouTube Second Channel</a>
+        <button onclick="switchTab('rift'); closeModal('linkHubModal');" class="hub-btn highlight">The Rift — Watch Series</button>
+        <a href="#" target="_blank" class="hub-btn link-discord">Discord Community</a>
+        <button onclick="switchTab('contact'); closeModal('linkHubModal');" class="hub-btn">Business Contact</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="creditsModal" class="modal-overlay" onclick="closeModal('creditsModal')">
+    <div class="modal-content text-modal glass-panel" onclick="event.stopPropagation()" id="creditsModalContent">
+      <!-- Dynamic Credits populate from app.js -->
+    </div>
+  </div>
+
+  <div id="privacyModal" class="modal-overlay" onclick="closeModal('privacyModal')">
+    <div class="modal-content text-modal glass-panel" onclick="event.stopPropagation()" id="privacyModalContent">
+      <!-- Dynamic Privacy content populates from app.js -->
+    </div>
+  </div>
+
+  <div id="termsModal" class="modal-overlay" onclick="closeModal('termsModal')">
+    <div class="modal-content text-modal glass-panel" onclick="event.stopPropagation()" id="termsModalContent">
+      <!-- Dynamic Terms content populates from app.js -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
