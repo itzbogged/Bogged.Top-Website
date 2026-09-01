@@ -56,6 +56,23 @@ const CONFIG = {
       ]
     },
     {
+      categoryName: 'Animators',
+      members: [
+        {
+          name: 'Crebish',
+          role: 'Animator',
+          avatarText: 'CB',
+          image: 'assets/crebish.png'
+        },
+        {
+          name: 'Afegor',
+          role: 'Animator',
+          avatarText: 'AF',
+          image: 'assets/afegor.png'
+        }
+      ]
+    },
+    {
       categoryName: 'Main Actors',
       members: [
         {
